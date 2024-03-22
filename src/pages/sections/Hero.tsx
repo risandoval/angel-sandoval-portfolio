@@ -1,46 +1,31 @@
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import { portfolioData } from "../../assets/portfolioData";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const Hero = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+    const targetRef = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: targetRef,
+    });
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const position = window.scrollY;
-      setScrollPosition(position);
-    };
+    const x = useTransform(scrollYProgress, [0, 1], ["50%", "-40%"]);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const calculateTranslate = () => {
-    const maxScroll = document.body.clientHeight - window.innerHeight;
-    const translationRange = 50; // Range of translation in pixels
-    const translate = (scrollPosition / maxScroll) * translationRange;
-    return 50 - translate;
-  };
-
-  return (
-    <div className="flex items-center justify-center w-full gap-10 h-[100vw] text-brown-100 text-nowrap overflow-x-hidden"
-        style={{
-            transform: `translateX(${calculateTranslate()}%)`,
-        }}
-    >
-      <div className="font-bold font-firaSans text-9xl">
-        MARY ANGEL SANDOVAL
-      </div>
-      <div className="flex flex-col w-2/5 gap-2">
-        <div className="text-4xl font-medium">{portfolioData.hero.title}</div>
-        <div className="text-2xl text-pretty">
-          {portfolioData.hero.titleDescription}
-        </div>
-      </div>
-    </div>
-  );
+    return (
+        <section ref={targetRef} id="hero-container" className="relative h-[150vh] text-brown-100">
+            <div id="heroText" className="sticky top-0 flex h-screen items-center overflow-hidden">
+                <motion.div style={{ x }} className="flex gap-10 text-nowrap">
+                    <div className="font-bold font-firaSans text-9xl">
+                        MARY ANGEL SANDOVAL
+                    </div>
+                    <div className="flex flex-col w-2/5 gap-2">
+                        <div className="text-4xl font-medium"> { portfolioData.hero.title } </div>
+                        <div className="text-2xl text-pretty"> {portfolioData.hero.titleDescription} </div>
+                    </div>
+                </motion.div>
+                
+            </div>
+        </section>
+    );
 };
 
 export { Hero };

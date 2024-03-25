@@ -1,23 +1,16 @@
+import { ScrollContainer, ScrollPage } from "react-scroll-motion"
 import { Hero } from "./sections/Hero"
+import { About } from "./sections/About"
 
 const Landing = () => {
     return (
-        // <div className="relative flex flex-col justify-center w-full min-h-screen overflow-x-hidden tablet:gap-12 laptop:gap-28">
-        //     <Hero />
-        // </div>
-        <div className="bg-neutral-800">
-            <div className="flex h-48 items-center justify-center">
-                <span className="font-semibold uppercase text-neutral-500">
-                Scroll down
-                </span>
-            </div>
+        <ScrollContainer className="relative flex flex-col justify-center w-full min-h-screen py-4 tablet:gap-12 laptop:gap-28">
             <Hero />
-            <div className="flex h-48 items-center justify-center">
-                <span className="font-semibold uppercase text-neutral-500">
-                Scroll up
-                </span>
-            </div>
-        </div>
+
+            <ScrollPage>
+                <About />
+            </ScrollPage>
+        </ScrollContainer>
     )
 }
 

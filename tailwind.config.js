@@ -16,7 +16,15 @@ export default {
                 'brown': {100: '#6A5D48'},
                 'dark-brown': {100: '#4A4132'},
                 'white': {100: '#D9D9D9'}
-            }
+            },
+            screens: {
+                xs : '360px', //mobile
+                s : '415px', //mobile
+                m : '601px', //tablet
+                lg : '1024px', //tablet
+                xl : '1280px', //desktop
+                xxl : '1920px', //desktop
+              }
         },
     },
     plugins: [],

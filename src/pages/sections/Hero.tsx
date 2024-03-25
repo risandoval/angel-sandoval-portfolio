@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { portfolioData } from "../../assets/portfolioData";
 import { useScroll, useTransform, motion } from "framer-motion";
+import { NavbarMenu } from "../components/NavbarMenu";
 
 const Hero = () => {
     const targetRef = useRef(null);
@@ -12,7 +13,8 @@ const Hero = () => {
 
     return (
         <section ref={targetRef} id="hero-container" className="relative h-[150vh] text-brown-100">
-            <div id="heroText" className="sticky top-0 flex h-screen items-center overflow-hidden">
+            <NavbarMenu />
+            <div id="heroText" className="sticky top-0 flex items-center h-screen overflow-hidden">
                 <motion.div style={{ x }} className="flex gap-10 text-nowrap">
                     <div className="font-bold font-firaSans text-9xl">
                         MARY ANGEL SANDOVAL

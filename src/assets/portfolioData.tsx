@@ -1,5 +1,6 @@
 export const portfolioData = {
     "hero": {
+        "name": "Mary Angel Sandoval",
         "title": "Front End Developer & Designer",
         "titleDescription": "I'm a designer who speaks code. I translate ideas into beautiful and intuitive interfaces, building websites and applications that are both visually stunning and functionally flawless."
     },

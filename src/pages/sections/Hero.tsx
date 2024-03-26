@@ -1,33 +1,26 @@
-import { useRef } from "react";
-import { portfolioData } from "../../assets/portfolioData";
-import { useScroll, useTransform, motion } from "framer-motion";
-import { NavbarMenu } from "../components/NavbarMenu";
+import { NavbarMenu } from '../components/NavbarMenu'
+import { portfolioData } from '../../assets/portfolioData'
 
 const Hero = () => {
-    const targetRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: targetRef,
-    });
-
-    const x = useTransform(scrollYProgress, [0, 1], ["50%", "-40%"]);
-
-    return (
-        <section ref={targetRef} id="hero-container" className="relative h-[150vh] text-brown-100">
-            <NavbarMenu />
-            <div id="heroText" className="sticky top-0 flex items-center h-screen overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-10 text-nowrap">
-                    <div className="font-bold font-firaSans text-9xl">
-                        MARY ANGEL SANDOVAL
-                    </div>
-                    <div className="flex flex-col w-2/5 gap-2">
-                        <div className="text-4xl font-medium"> { portfolioData.hero.title } </div>
-                        <div className="text-2xl text-pretty"> {portfolioData.hero.titleDescription} </div>
-                    </div>
-                </motion.div>
-                
+    
+  return (
+    <section id="hero-container" className="relative flex flex-col min-h-screen text-brown-100"> 
+        <NavbarMenu />
+        <div id="heroText" className="flex flex-col items-start justify-center h-screen pl-44">
+            <div className='text-2xl font-radioCanada font-light'>
+                { portfolioData.hero.title }
             </div>
-        </section>
-    );
-};
+            <div className='text-8xl font-firaSans font-medium tracking-tighter'>
+                { portfolioData.hero.name }
+            </div>
+            
+        </div>
+        <div className='flex items-center gap-3 text-wrap w-fit -rotate-90 absolute bottom-32 -right-16'>
+            <hr className='w-32 bg-brown-100 text-brown-100 border border-brown-100' />
+            <div className='text-xl font-radioCanada font-normal'>Scroll Up</div>
+        </div>
+    </section>
+  )
+}
 
-export { Hero };
+export { Hero }

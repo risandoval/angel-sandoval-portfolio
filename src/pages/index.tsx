@@ -1,7 +1,8 @@
-import { ScrollContainer, ScrollPage } from "react-scroll-motion"
 import { Hero } from "./sections/Hero"
 import { About } from "./sections/About"
 import { useEffect, useRef } from "react";
+import { Container } from "./components/Container";
+import { NavbarMenu } from "./components/NavbarMenu";
 
 const Landing = () => {
     const grainRef = useRef<HTMLDivElement>(null);
@@ -29,15 +30,18 @@ const Landing = () => {
     });
 
     return (
-        <ScrollContainer className="relative flex flex-col justify-center w-full min-h-screen py-4 tablet:gap-12 laptop:gap-28">
+        <div className="relative flex flex-col justify-center w-full min-h-screen py-4 tablet:gap-12 laptop:gap-28">
             <div ref={grainRef} className="grain"></div>
-            
-            <Hero />
-
-            <ScrollPage>
+            <NavbarMenu />
+            <div>
+                <Hero />
                 <About />
-            </ScrollPage>
-        </ScrollContainer>
+            </div>
+            
+            <Container id="sample" className="w-full p-10 h-[150vh]">
+                <div>sample</div>
+            </Container>
+        </div>
     )
 }
 

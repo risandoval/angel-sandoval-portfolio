@@ -39,7 +39,7 @@ const Landing = () => {
             </div>
             
             <Container id="sample" className="w-full p-10 h-[150vh]">
-                <div>sample</div>
+                <div>work section sample</div>
             </Container>
         </div>
     )

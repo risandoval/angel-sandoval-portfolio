@@ -4,7 +4,7 @@ import { Container } from '../components/Container'
 const Hero = () => {
     return (
         <Container id="hero" className="sticky top-0">
-            <div id="heroText" className="flex flex-col items-start justify-center h-screen pl-4">
+            <div id="heroText" className="flex flex-col items-start justify-center h-screen pl-4 lg:pl-12 xl:pl-20">
                 <div className='text-sm font-light font-radioCanada lg:text-xl xl:text-2xl'>
                     { portfolioData.hero.title }
                 </div>

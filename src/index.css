@@ -10,7 +10,6 @@ html {
 }
 
 * {
-    /* border:red 1px solid !important; */
     scroll-behavior: smooth;
 }
 

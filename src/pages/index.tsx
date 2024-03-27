@@ -2,7 +2,7 @@ import { Hero } from "./sections/Hero"
 import { About } from "./sections/About"
 import { useEffect, useRef } from "react";
 import { Container } from "./components/Container";
-import { NavbarMenu } from "./components/NavbarMenu";
+import { Navbar } from "./components/Navbar";
 
 const Landing = () => {
     const grainRef = useRef<HTMLDivElement>(null);
@@ -32,7 +32,7 @@ const Landing = () => {
     return (
         <div className="relative flex flex-col justify-center w-full min-h-screen py-4 tablet:gap-12 laptop:gap-28">
             <div ref={grainRef} className="grain"></div>
-            <NavbarMenu />
+            <Navbar />
             <div>
                 <Hero />
                 <About />
